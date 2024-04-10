@@ -1,4 +1,4 @@
-# Heart Rate Application
+# Heart Story 🏃🏼
 
 ## Passion Project of creating a Data Analytical Dashboard for Athletes
 

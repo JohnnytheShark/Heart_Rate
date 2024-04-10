@@ -4,30 +4,22 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+    <div>
+    <h1>Heart 🫀 Story</h1>
+      <p>Still working on branding for this application, but here is the broad overview.
+        I wanted to create an application that would allow me to better visualize my runs, workouts, and sprints. 
+        This came out of a desire to understand my heart. Long story short, I was born with a heart condition, underwent surgery for it, and now I just want to understand what makes my heart tick during workouts.
       </p>
+    </div>
+    <div>
+      <h2>Upload your GPX File Here:</h2>
+      <input type="file" name="uploaded_file" accept=".gpx" />
+      <button>Submit</button>
+    </div>
+
     </>
   )
 }
