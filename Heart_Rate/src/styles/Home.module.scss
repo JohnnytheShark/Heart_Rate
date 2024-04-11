@@ -1,0 +1,17 @@
+.details{
+    display: flex;
+    flex-direction: column;
+    background: rgb(233, 229, 229);
+    padding: 20px;
+    height: 100vh;
+    text-align: center;
+    max-width: 400px;
+    justify-content: space-around;
+}
+.gpxForm{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+}
