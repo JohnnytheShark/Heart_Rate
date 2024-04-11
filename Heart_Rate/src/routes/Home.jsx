@@ -1,27 +1,24 @@
 import styles from '../styles/Home.module.scss';
-import {Form} from 'react-router-dom';
+import {NavLink,useNavigate} from 'react-router-dom';
 
 function Home() {
-
+const navigate = useNavigate();
   return (
     <div className={styles.details}>
     <div>
     <h1>Heart 🫀 Story</h1>
       <p>Still working on branding for this application, but here is the broad overview.
-        I wanted to create an application that would allow me to better visualize my runs, workouts, and sprints. 
-        This came out of a desire to understand my heart. Long story short, I was born with a heart condition, underwent surgery for it, and now I just want to understand what makes my heart tick during workouts.
+        I wanted to create an application that would allow me to better visualize my runs, workouts, and sprints.
+        I set this up as an open source repository for any one else to download and use.
       </p>
+      <a href="https://github.com/JohnnytheShark/Heart_Rate" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
     </div>
+    <NavLink to="/FrequentlyAskedQuestions">Frequently Asked Questions</NavLink>
     <br/>
     <div>
-      <h2>Upload your GPX File Here:</h2><br/>
-      <Form method="post" className={styles.gpxForm}>
-      <label>Age:</label><br/>
-      <input type="number" step="1" maximum="140" defaultValue={20}/><br/>
-      <label>GPX File:</label><br/>
-      <input type="file" name="uploaded_file" accept=".gpx" />
-      <button>Submit</button>
-      </Form>
+      <h2>Example GPX File</h2><br/>
+      <p>I did not want to be liable for misinterpretations of health data, at least not without a legal team behind me. However, I still wanted to showcase my skills as a developer.</p>
+      <button onClick={()=>navigate('Analysis')}>Run Analysis</button>
     </div>
     <div>
       <h3>Disclaimer</h3>

@@ -6,3 +6,13 @@
     font-family: 'Montesserat';
     src: url('fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
 }
+article{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    background-color: rgb(251, 239, 217);
+    padding: 20px;
+    border-radius: 10px;
+}

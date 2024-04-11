@@ -7,13 +7,22 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from 'react-router-dom';
+import Analysis from './routes/Analysis';
+import Deployment from './routes/Deployment';
 
 const router = createBrowserRouter([
   {
     path:"/",
     element:<Root/>,
     children:[
-
+      {
+        path:"Analysis",
+        element:<Analysis/>
+      },
+      {
+        path:"FrequentlyAskedQuestions",
+        element:<Deployment/>
+      }
     ]
   }
 ])
