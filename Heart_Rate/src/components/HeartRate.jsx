@@ -131,7 +131,7 @@ function refreshPage(){
 return (
   <div className={styles.chart}>
     <h1>{data && data.tracks[0]['name']}</h1>
-        <svg ref={svgRef} width="100%" height="500"></svg>
+        <svg ref={svgRef} width="90vw" height="500"></svg>
         {tooltipVisible ?
         (<div style={{ position: 'absolute', left: tooltipData.x, top: tooltipData.y, backgroundColor: 'white', border: '1px solid black', padding: '5px' }}>
         Time: {tooltipData.time}<br />

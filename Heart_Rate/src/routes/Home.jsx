@@ -17,7 +17,7 @@ const navigate = useNavigate();
     <br/>
     <div>
       <h2>Example GPX File</h2><br/>
-      <p>I did not want to be liable for misinterpretations of health data, at least not without a legal team behind me. However, I still wanted to showcase my skills as a developer.</p>
+      <p>I did not want to be liable for misinterpretations of health data, at least not without a legal team behind me. However, I still wanted to showcase my skills as a developer. I took my first ever half-marthon and used it as the data mapped out here.</p>
       <button onClick={()=>navigate('Analysis')}>Run Analysis</button>
     </div>
     <div>

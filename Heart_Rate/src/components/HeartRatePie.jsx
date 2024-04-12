@@ -132,7 +132,7 @@ export default function HeartRatePie({ data, zones }) {
  return (
     <div className={styles.chart}>
       <h1>Heart Rate Zones based on this Run</h1>
-      <svg ref={svgRef} width="100%" height="500">
+      <svg ref={svgRef} width="90vw" height="500">
       </svg>
       <button onClick={refreshPage}>Chart not loading?</button>
     </div>

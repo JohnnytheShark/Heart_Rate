@@ -5,6 +5,7 @@ import data from '../example-data/MarthonRun.json';
 import styles from '../styles/Analysis.module.scss';
 
 import { useState, useEffect } from 'react';
+import RunStatistics from "../components/RunStatistics";
 
 export default function Analysis() {
  const [zones, updateZones] = useState({}); // Initialize zones as an object
@@ -30,6 +31,7 @@ export default function Analysis() {
       <HeartRate data={data} zones={zones}/>
       <HeartRateZones data={data} Age={Age} zones={zones} />
       <HeartRatePie data={data} zones={zones} />
+      <RunStatistics data={data}/>
     </div>
  );
 }

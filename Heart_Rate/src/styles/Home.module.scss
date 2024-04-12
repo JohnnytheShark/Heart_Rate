@@ -20,16 +20,18 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    background-color: #f5f5f5; /* Example background color */
-    color: #333; /* Example text color */
-    font-family: Arial, sans-serif; /* Example font */
-    font-size: 16px; /* Example font size */
-    line-height: 1.5; /* Example line height */
+    background: url('/layered-waves-haikei (1).svg') no-repeat center center fixed;
+    background-size: cover; /* Use cover to ensure the image covers the entire container without stretching */
+    background-origin: content-box;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
     ul {
-        list-style-type: none; /* Remove default list styling */
+        list-style-type: none;
         padding-left: 0;
         li {
-            padding: 10px 0; /* Add vertical padding to list items */
+            padding: 10px 0;
         }
     }
 }
