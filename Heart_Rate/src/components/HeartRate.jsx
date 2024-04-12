@@ -1,20 +1,37 @@
 import { useRef, useEffect, useState } from 'react';
 import * as d3 from 'd3';
 import styles from '../styles/Analysis.module.scss';
+import PropTypes from 'prop-types';
 
-export default function HeartRate({ data }) {
+export default function HeartRate({ data,zones }) {
  const svgRef = useRef();
  const [tooltipData, setTooltipData] = useState({ x: 0, y: 0, time: '', heartRate: '' });
  const [tooltipVisible, setTooltipVisible] = useState(false);
-const [isDataLoaded, setIsDataLoaded] = useState(false);
+ const [isDataLoaded, setIsDataLoaded] = useState(false);
 
- // Data processing
- useEffect(() => {
-  if (data && data.tracks && data.tracks.length > 0) {
-    // Process data here
-    setIsDataLoaded(true); // Set loading state to true once data is processed
-  }
-}, [data]);
+ function colorCodeHeartRates(data, zoneDefinitions) {
+  data.tracks.forEach(track => {
+     track.segments.forEach(segment => {
+       segment.forEach(item => {
+         // Convert heart rate to number if it's a string
+         const heartRate = Number(item.heart_rate);
+         // Find the zone that the heart rate falls into using the provided zoneDefinitions
+         const zone = zoneDefinitions.find(zone => heartRate >= zone.min && heartRate < zone.max);
+         // Add the color to the item
+         item.color = zone ? zone.color : '#000000'; // Default color if no zone is found
+       });
+     });
+  });
+  return data;
+ }
+ 
+
+  // Data processing
+  useEffect(() => {
+    if (data && data.tracks && data.tracks.length > 0) {
+      setIsDataLoaded(true); // Set loading state to true
+    }
+  }, [data, zones]);
 
 function refreshPage(){
   window.location.reload();
@@ -23,12 +40,19 @@ function refreshPage(){
 
  useEffect(() => {
     if (isDataLoaded) {
+      const zoneDefinitions = [
+        { min: 0, max: zones.Zone2, color: "#D1D1D1" }, //Zone 1 0 to 127
+        { min: zones.Zone2, max: zones.Zone3, color: "#2978A0" }, // Zone 2 127 to 140
+        { min: zones.Zone3, max: zones.Zone4, color: "#4B7F52" }, // Zone 3 140 to 153
+        { min: zones.Zone4, max: zones.Zone5, color: "#F05D23" }, // Zone 4 153 to 166
+        { min: zones.Zone5, max: Infinity, color: "#CA3C25" }, // Zone 5 169 or greater
+      ]
       const svg = d3.select(svgRef.current);
       const margin = { top: 40, right: 80, bottom: 60, left: 50 };
       const width = svg.node().getBoundingClientRect().width - margin.left - margin.right;
       const height = svg.node().getBoundingClientRect().height - margin.top - margin.bottom;
-
-      const allPoints = data.tracks.flatMap(track => track.segments.flat());
+      const coloredPoints = colorCodeHeartRates(data,zoneDefinitions);
+      const allPoints = coloredPoints.tracks.flatMap(track => track.segments.flat());
       const parseTime = d3.timeParse("%Y-%m-%dT%H:%M:%S%Z");
       allPoints.forEach(d => {
         d.time = parseTime(d.time);
@@ -43,14 +67,10 @@ function refreshPage(){
         .domain([50, d3.max(allPoints, d => d.heart_rate)])
         .range([height, 0]);
 
+
       const line = d3.line()
         .x(d => xScale(d.time))
         .y(d => yScale(d.heart_rate));
-
-      const area = d3.area()
-        .x(d => xScale(d.time))
-        .y0(yScale(50))
-        .y1(d => yScale(d.heart_rate))
 
       svg.append("path")
         .datum(allPoints)
@@ -59,11 +79,6 @@ function refreshPage(){
         .attr("stroke-width", 1.5)
         .attr("d", line)
         .attr("transform","translate(50,0)");
-
-      svg.append("path")
-      .attr("transform","translate(50,0)")
-      .attr("fill","steelblue")
-      .attr("d",area(allPoints))
 
       svg.append("g")
         .attr("transform", `translate(50,${height})`)
@@ -92,7 +107,8 @@ function refreshPage(){
         svg.selectAll("circle")
         .data(allPoints)
         .enter().append("circle")
-        .attr("r", 1)
+        .attr("fill",d =>d.color)
+        .attr("r", 1.5)
         .attr("cx", d => xScale(d.time))
         .attr("cy", d => yScale(d.heart_rate))
         .attr("transform","translate(50,0)")
@@ -110,17 +126,22 @@ function refreshPage(){
            setTooltipVisible(false);
         });
     }
- }, [isDataLoaded,data]);
+ }, [isDataLoaded,data,zones]);
 
 return (
   <div className={styles.chart}>
     <h1>{data && data.tracks[0]['name']}</h1>
         <svg ref={svgRef} width="100%" height="500"></svg>
-        <div style={{ position: 'absolute', left: tooltipData.x, top: tooltipData.y, backgroundColor: 'white', border: '1px solid black', padding: '5px' }}>
+        {tooltipVisible ?
+        (<div style={{ position: 'absolute', left: tooltipData.x, top: tooltipData.y, backgroundColor: 'white', border: '1px solid black', padding: '5px' }}>
         Time: {tooltipData.time}<br />
         Heart Rate: {tooltipData.heartRate}
-        </div>
+        </div>) : ""}
         <button onClick={refreshPage}>Chart not loading?</button>
   </div>
 );
+}
+
+HeartRate.propTypes = {
+  data: PropTypes.object
 }

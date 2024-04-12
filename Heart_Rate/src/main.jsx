@@ -9,12 +9,17 @@ import {
 } from 'react-router-dom';
 import Analysis from './routes/Analysis';
 import Deployment from './routes/Deployment';
+import LandingPage from './routes/LandingPage';
 
 const router = createBrowserRouter([
   {
     path:"/",
     element:<Root/>,
     children:[
+      {
+        index:true,
+        element:<LandingPage/>
+      },
       {
         path:"Analysis",
         element:<Analysis/>

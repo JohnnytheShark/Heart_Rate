@@ -11,8 +11,8 @@ const navigate = useNavigate();
         I wanted to create an application that would allow me to better visualize my runs, workouts, and sprints.
         I set this up as an open source repository for any one else to download and use.
       </p>
-      <a href="https://github.com/JohnnytheShark/Heart_Rate" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
     </div>
+    <a href="https://github.com/JohnnytheShark/Heart_Rate" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
     <NavLink to="/FrequentlyAskedQuestions">Frequently Asked Questions</NavLink>
     <br/>
     <div>

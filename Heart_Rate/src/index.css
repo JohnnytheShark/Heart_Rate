@@ -16,3 +16,27 @@ article{
     padding: 20px;
     border-radius: 10px;
 }
+a{
+    background-color: rgb(213, 98, 98);
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+a:hover,button:hover{
+   background-color: rgb(168, 168, 240); 
+   color: black;
+}
+
+button{
+    background-color: rgb(213,98,98);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin: 5px;
+    width: 50%;
+    align-self: center;
+}
