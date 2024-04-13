@@ -5,11 +5,19 @@
 I wanted to create a dashboard from ground up without the use of Tableu, Microsoft Power BI, or any other data analytical tools as a challenge. 
 I used D3.js and React to create the Frontend.
 
+## Why Build it? 
+I wanted to showcase my skills as a Developer and Data Analyst. I could have easily built it with a different app or stack but felt this one allowed me the most flexibility and fastest setup.
+
 Sample Dashboard can be viewed here: [Heart Story Dashboard](https://johnnytheshark.github.io/Heart_Story/Analysis)
 
 ### The Dashboard Project was split as follow: 
 1. Front-End Application (React + D3.js) which can be seen here: [Front-End](https://github.com/JohnnytheShark/Heart_Rate/tree/master/Heart_Rate)
 2. Back-End REST API (Python Flask) which converts your GPX file to JSON [Back-End](https://github.com/JohnnytheShark/Heart_Rate/tree/master/Heart_Story_Backend)
+
+### Improvements I would make:
+1. More Data Analytics Processed on the Backend. After creating the original dashboard I realized it slowed down the frontend a bit having to do the analysis, not by much just some. So I would move the analytics to Python or Rust.
+2. Create More Visuals to view the data and create an option to compare runs.
+3. Use a different or more charting libraries to explore what the possibilities are out there. 
 
 
 ### Installation Instructions to see your own data
