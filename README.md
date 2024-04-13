@@ -17,7 +17,8 @@ Sample Dashboard can be viewed here: [Heart Story Dashboard](https://johnnythesh
 ### Improvements I would make:
 1. More Data Analytics Processed on the Backend. After creating the original dashboard I realized it slowed down the frontend a bit having to do the analysis, not by much just some. So I would move the analytics to Python or Rust.
 2. Create More Visuals to view the data and create an option to compare runs.
-3. Use a different or more charting libraries to explore what the possibilities are out there. 
+3. Use a different or more charting libraries to explore what the possibilities are out there.
+4. Turn this into an Electron App or Tauri application and have it on my desktop to use whenever I would please. 
 
 
 ### Installation Instructions to see your own data
