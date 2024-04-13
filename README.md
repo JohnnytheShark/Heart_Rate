@@ -15,10 +15,11 @@ Sample Dashboard can be viewed here: [Heart Story Dashboard](https://johnnythesh
 2. Back-End REST API (Python Flask) which converts your GPX file to JSON [Back-End](https://github.com/JohnnytheShark/Heart_Rate/tree/master/Heart_Story_Backend)
 
 ### Improvements I would make:
-1. More Data Analytics Processed on the Backend. After creating the original dashboard I realized it slowed down the frontend a bit having to do the analysis, not by much just some. So I would move the analytics to Python or Rust.
-2. Create More Visuals to view the data and create an option to compare runs.
-3. Use a different or more charting libraries to explore what the possibilities are out there.
-4. Turn this into an Electron App or Tauri application and have it on my desktop to use whenever I would please. 
+1. Connect directly to Garmin Connect through an API and allow users to download their data that way or bring it over to the dashboard in that way.
+2. More Data Analytics Processed on the Backend. After creating the original dashboard I realized it slowed down the frontend a bit having to do the analysis, not by much just some. So I would move the analytics to Python or Rust.
+3. Create More Visuals to view the data and create an option to compare runs.
+4. Use a different or more charting libraries to explore what the possibilities are out there.
+5. Turn this into an Electron App or Tauri application and have it on my desktop to use whenever I would please. 
 
 
 ### Installation Instructions to see your own data
